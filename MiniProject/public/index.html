@@ -1,0 +1,56 @@
+<html ng-app="EmployeeDetail">
+    <head >
+        <title>Employee Detail App</title>
+        <link href="bootstrap.css" rel="stylesheet" />
+        <link href="bootstrap-theme.css" rel="stylesheet" />
+        
+    </head>
+    <body>
+       <div class="container" ng-controller="MyController">
+            <h1>Employee Detail </h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>City</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" ng-model="employee.name" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="employee.gender" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="employee.city" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="employee.salary" />
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="addEmployee()">Add Employee</button>
+                            <button class="btn btn-info" ng-click="updateEmployee()">Update</button>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="employee in employeeList">
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.gender
+                        }}</td>
+                        <td>{{ employee.city }}</td>
+                        <td>{{ employee.salary }}</td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="removeEmployee(employee._id)">Delete</button> &nbsp;
+                            <button class="btn btn-warning" ng-click="edit(employee._id)">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+       </div>
+        <script src="angular.min.js"></script>
+        <script src="controllers/controller.js"></script>
+    </body>
+</html>
